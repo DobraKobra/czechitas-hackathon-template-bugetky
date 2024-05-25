@@ -1,5 +1,7 @@
 import { Page } from "@playwright/test";
 import { TemplatePage } from "./template-page";
+import { Login } from "./login";
+
 
 
 // abys mohla pouzivat await pages.templatePage, tak je potreba si ji tady nadefinovat.
@@ -7,13 +9,15 @@ import { TemplatePage } from "./template-page";
 // vice mene udelej to stejne, jak je ta TemplatePage :) a melo by to fungovat :) 
 export class AllPages {
   readonly page: Page;
+  readonly templatePage: Page;
+  readonly loginPage: Page;
 
   // 
-  readonly templatePage: TemplatePage;
+  
 
   constructor(page: Page) {
     this.page = page;
-    this.templatePage = new TemplatePage(page);
+    
   }
 
   async visit(url: string) {
